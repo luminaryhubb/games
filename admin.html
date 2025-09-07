@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Steal a Branirot - Admin Servers & Scripts</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Steal a Branirot 🧠" />
+  <meta property="og:description" content="Private admin servers and scripts for Steal a Brainrot" />
+  <meta property="og:image" content="https://i.imgur.com/W0jP57t.jpeg" />
+  <meta property="og:url" content="https://kaaminari.github.io/stealabrainrot/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Steal a Branirot" />
+  <meta name="twitter:description" content="Private admin servers and scripts for Steal a Brainrot" />
+  <meta name="twitter:image" content="https://i.imgur.com/W0jP57t.jpeg" />
+
+  <!-- Fonte -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Nunito', sans-serif;
+      text-align: center;
+      color: #ffffff;
+      overflow-x: hidden;
+      background: #000;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      backdrop-filter: blur(5px);
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+
+    canvas#snow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      padding: 60px 20px 40px;
+    }
+
+    .profile-pic {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #fff;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 42px;
+      color: #ffffff;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #ffffff44;
+    }
+
+    .link-button {
+      display: block;
+      margin: 10px auto;
+      padding: 12px 20px;
+      background-color: transparent;
+      border: 2px solid #ffffff;
+      border-radius: 12px;
+      color: #ffffff;
+      font-size: 18px;
+      cursor: pointer;
+      width: 250px;
+      transition: transform 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      text-decoration: none;
+    }
+
+    .link-button::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0%;
+      background: rgba(255, 255, 255, 0.15);
+      transition: height 0.5s ease;
+      z-index: -1;
+    }
+
+    .link-button:hover {
+      transform: scale(1.05);
+    }
+
+    .link-button:hover::before {
+      height: 100%;
+    }
+
+    .footer-note {
+      margin-top: 40px;
+      color: #ffffffcc;
+      font-size: 16px;
+      text-shadow: 0 0 5px #ffffff22;
+      line-height: 1.4;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #ffffff;
+      margin: 60px auto 40px;
+      width: 60%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <canvas id="snow"></canvas>
+
+  <div class="container">
+    <img src="https://tr.rbxcdn.com/180DAY-2c80b25b40d200f99b1d085120972eff/256/256/Image/Webp/noFilter" alt="Logo Redonda" class="profile-pic" />
+
+    <h1>STEAL A BRANIROT <br>Private Admin Servers</h1>
+
+    <a href="https://kaaminari.github.io/brainrot/" class="link-button" target="_blank">DISCORD (coming soon)</a>
+
+    <a href="https://roblox.do/games/109983668079237/Steal-a-Brainrot?privateServerLinkCode=88529740050537334705734819724024"
+      class="link-button" target="_blank">🧠 1° Private Server</a>
+
+    <a href="https://roblox.do/games/109983668079237/Steal-a-Brainrot?privateServerLinkCode=88529740050537334705734819724024"
+      class="link-button" target="_blank">🧠 2° Private Server</a>
+
+    <hr>
+
+    <h1>SCRIPT - DUPE</h1>
+
+    <a href="https://roblox.do/communities/3968415260/" class="link-button" target="_blank">GROUP 1</a>
+    <a href="https://roblox.do/communities/3968415260/" class="link-button" target="_blank">GROUP 2</a>
+
+    <a href="page-scp/script.html" class="link-button" target="_blank">🧠 SCRIPT BRAINROT</a>
+
+    <p class="footer-note">
+      🇺🇲 - YOU NEED TO BE IN THE GROUP TO UNLOCK THE SCRIPT<br>
+      🇧🇷 - VOCÊ PRECISA ESTAR NO GRUPO PARA LIBERAR O SCRIPT<br>
+      🇪🇸 - Necesitas estar en el grupo para liberar el SCRIPT
+    </p>
+
+    <p class="footer-note">More admin servers coming soon...</p>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("snow");
+    const ctx = canvas.getContext("2d");
+    let width, height;
+    let snowflakes = [];
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+
+    function createSnowflakes() {
+      const x = Math.random() * width;
+      const y = Math.random() * height;
+      const radius = Math.random() * 4 + 1;
+      const speed = Math.random() * 1 + 0.5;
+      snowflakes.push({ x, y, radius, speed });
+    }
+
+    function drawSnowflakes() {
+      ctx.clearRect(0, 0, width, height);
+      ctx.fillStyle = "#FFF";
+      ctx.beginPath();
+      for (let flake of snowflakes) {
+        ctx.moveTo(flake.x, flake.y);
+        ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
+      }
+      ctx.fill();
+      moveSnowflakes();
+    }
+
+    function moveSnowflakes() {
+      for (let flake of snowflakes) {
+        flake.y += flake.speed;
+        if (flake.y > height) {
+          flake.y = 0;
+          flake.x = Math.random() * width;
+        }
+      }
+    }
+
+    function update() {
+      drawSnowflakes();
+      requestAnimationFrame(update);
+    }
+
+    window.addEventListener("resize", resize);
+    resize();
+    for (let i = 0; i < 150; i++) {
+      createSnowflakes();
+    }
+    update();
+  </script>
+
+</body>
+</html>
